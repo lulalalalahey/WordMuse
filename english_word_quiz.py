@@ -25,7 +25,7 @@ def build_prompt(word):
     1. 【中文意思】：
        - 简洁准确的翻译
        - GRE考试中可能出现的特殊/不常用含义
-    2. 【英文释义】：用英文解释这个词的含义，特别是学术/正式用法。
+    2. 【英文释义】：Provide a clear English definition of this word, focusing on its academic/formal usage. Do not include any Chinese translations in this section.
     3. 【词根词缀】：分析词根、前缀或后缀，帮助我理解它的构造。
     4. 【趣味记忆法】：
        - 可以用谐音联想来记忆这个词吗？如果可以，请提供谐音记忆法。
