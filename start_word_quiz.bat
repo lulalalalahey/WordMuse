@@ -11,12 +11,21 @@ if %ERRORLEVEL% NEQ 0 (
     exit /b 1
 )
 
-:: 检查Ollama服务是否运行
+:: 检查并启动Ollama服务
 tasklist | findstr "ollama" >nul 2>&1
 if %ERRORLEVEL% NEQ 0 (
-    echo 错误: Ollama服务未运行。请先运行start_phi3.bat启动服务。
-    pause
-    exit /b 1
+    echo Ollama服务未运行，正在尝试启动...
+    start "" /B "f:\trae_program\others\WordMuse\start_phi3.bat"
+    timeout /t 5 /nobreak >nul
+    
+    :: 再次检查服务是否启动成功
+    tasklist | findstr "ollama" >nul 2>&1
+    if %ERRORLEVEL% NEQ 0 (
+        echo 错误: 无法启动Ollama服务，请手动运行start_phi3.bat
+        pause
+        exit /b 1
+    )
+    echo Ollama服务已成功启动
 )
 
 :: 安装必要的依赖库
