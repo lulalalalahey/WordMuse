@@ -11,8 +11,16 @@ if %ERRORLEVEL% NEQ 0 (
     exit /b 1
 )
 
+:: 检查Ollama服务是否运行
+tasklist | findstr "ollama" >nul 2>&1
+if %ERRORLEVEL% NEQ 0 (
+    echo 错误: Ollama服务未运行。请先运行start_phi3.bat启动服务。
+    pause
+    exit /b 1
+)
+
 :: 安装必要的依赖库
- echo 正在安装必要的依赖库...
+echo 正在安装必要的依赖库...
 python -m pip install --upgrade pip
 python -m pip install requests rich
 
