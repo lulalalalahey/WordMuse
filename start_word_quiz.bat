@@ -43,5 +43,3 @@ if %ERRORLEVEL% NEQ 0 (
 :: 启动英语单词趣味记忆查询器
 echo 启动英语单词趣味记忆查询器...
 python english_word_quiz.py
-
-pause
